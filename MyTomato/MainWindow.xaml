@@ -3,10 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MyTomato"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        xmlns:local="clr-namespace:MyTomato" SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d" Topmost="{Binding ElementName=TopCheck,Path=IsChecked}"
+        Title="我的番茄钟 v1.0" Height="200" Width="450" Icon="tmt.ico">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button x:Name="NewButton" Content="新番茄" Width="70" Height="25"  Click="NewButton_Click"/>
+            <Button x:Name="StopButton" Content="半途而废" Width="70"  Click="StopButton_Click" IsEnabled="False"/>
+            <Button x:Name="SettingButton" Content="设置" Width="50" />
+            <Button x:Name="HistoryButton" Content="历史" Width="50" />
+            <CheckBox x:Name="TopCheck" Content="置顶" VerticalAlignment="Center" Margin="10,0,10,0"/>
+        </StackPanel>
+        <TextBlock x:Name="TaskName" DockPanel.Dock="Top" HorizontalAlignment="Center" FontSize="20" Foreground="DarkOrange" FontWeight="ExtraBold" Text="No Task!" Margin="10,10,10,0"/>
+        <TextBlock x:Name="TimeText" Text="0:00:00.0" VerticalAlignment="Center" Foreground="DarkOrange" TextAlignment="Center" Margin="10,0,10,10" FontSize="50" FontFamily="Verdana" FontWeight="Heavy"/>
+    </DockPanel>
 </Window>
